@@ -224,7 +224,7 @@ const retakeBtn = document.createElement("button");
     quizResult.appendChild(retakeBtn);
 };
 
-  createQuestion();
+  // createQuestion();
 
 
   const displayNextQuestion = () => {
