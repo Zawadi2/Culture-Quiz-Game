@@ -249,14 +249,15 @@ const displayQuizResult = () => {
 /*----------------------------- Event Listeners -----------------------------*/
 
   nextBtn.addEventListener("click", displayNextQuestion);
-
+}
   startBtn.addEventListener("click", () => {
     startBtnContainer.style.display = "none";
     quizContainer.style.display = "block";
     createQuestion();
     startTimer();
   });
-}
+  
+
 
 
 
