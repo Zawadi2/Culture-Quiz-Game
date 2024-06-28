@@ -192,7 +192,7 @@ const createQuestion = () => {
     createQuestion();
     quizResult.style.display = "none";
     quizContainer.style.display = "block";
-  }
+  };
 
 const displayQuizResult = () => {
     quizResult.style.display = "flex";
@@ -234,7 +234,7 @@ const displayQuizResult = () => {
     retakeBtn.innerText = "Retake Quiz";
     retakeBtn.addEventListener("click", retakeQuiz);
     quizResult.appendChild(retakeBtn);
-
+  };
 
   const displayNextQuestion = () => {
     if (questionNumber >= MAX_QUESTIONS - 1) {
@@ -248,8 +248,10 @@ const displayQuizResult = () => {
   };
 /*----------------------------- Event Listeners -----------------------------*/
 
+
   nextBtn.addEventListener("click", displayNextQuestion);
-}
+  
+
   startBtn.addEventListener("click", () => {
     startBtnContainer.style.display = "none";
     quizContainer.style.display = "block";
