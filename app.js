@@ -260,6 +260,12 @@ const displayQuizResult = () => {
   });
   
 
+  const playAudio = new Audio(".../audio/beats.mp3")
+
+  playAudio.addEventListener("click",() => {
+    audio.volume = 0.5
+    audio.play()
+  })
 
 
 
