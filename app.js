@@ -1,103 +1,108 @@
-let quizData = [
-    {
-    question: "What continent has the most World Heritage Sites?",
-    options: ["Asia", "Africa", "Europe", "North America"],
-    correct: "Europe",
-    },
-    {
-    question: "Which planet is known as the 'Red Planet'?",
-    options: ["Mars", "Venus", "Jupiter", "Mercury"],
-    correct: "Mars",
-    },
-    {
-    question: "What is the Vredefort Dome, a World Heritage site in South Africa??",
-    options: [
-      "The world's largest asteroid impact site",
-        "An 11th-century stadium",
-        "A historic gold mine",
-        "A volcanic crater",
-    ],
-    correct: "The world's largest asteroid impact site",
-    },
-    {
-    question: "What is the largest mammal on Earth?",
-    options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
-    correct: "Blue Whale",
-    },
-    {
-    question: "Which famous artist painted the Mona Lisa?",
-    options: [
-        "Vincent van Gogh",
-        "Pablo Picasso",
-        "Leonardo da Vinci",
-        "Michelangelo",
-    ],
-    correct: "Leonardo da Vinci",
-    },
-    {
-    question: "Which playwright wrote the tragedy 'Romeo and Juliet'?",
-    options: [
-        "William Shakespeare",
-        "George Bernard Shaw",
-        "Oscar Wilde",
-        "Charles Dickens",
-    ],
-    correct: "William Shakespeare",
-    },
-    {
-    question: "What does a World Heritage site added in 2006 recognizes in Mexico add?",
-    options: [
-        "Artist Diego Rivera's murals",
-        "The Zona Rosa neighborhood of Mexico City",
-        "Its tequila-producing area",
-        "A bullring in Acapulco",
-    ],
-    correct: "Its tequila-producing area",
-    },
-    {
-    question:
-    "Which ancient wonder of the world was a massive statue of the Greek god Zeus?",
-    options: [
-    "Great Pyramid of Giza",
-        "Hanging Gardens of Babylon",
-        "Statue of Zeus at Olympia",
-        "Colossus of Rhodes",
-    ],
-    correct: "Statue of Zeus at Olympia",
-    },
-    {
-    question: "Which religion has the cow a holy animal?",
-    options: [
-        "Buddhism", "Judaism",
-        "Christianity", "Hinduism",],
-    correct: "Hinduism",
-    },
+/*-------------------------------- Constants --------------------------------*/
 
-    {
-    question: "Which food is from Mexico?",
-    options: [
-        "Injera",
-        "Banga",
-        "Molletes",
-        "Pastilla",
-    ],
-    correct: "Molletes",
-    },
-  
-    ];
-  
-  const quizContainer = document.querySelector(".quiz-container");
-  const question = document.querySelector(".quiz-container .question");
-  const options = document.querySelector(".quiz-container .options");
-  const nextBtn = document.querySelector(".quiz-container .next-btn");
-  const quizResult = document.querySelector(".quiz-result");
-  const startBtnContainer = document.querySelector(".start-btn-container");
-  const startBtn = document.querySelector(".start-btn-container .start-btn");
-  
-  let questionNumber = 0;
-  let score = 0;
-  const MAX_QUESTIONS = 10;
-  let timerInteval;
+let quizData = [
+  {
+  question: "What continent has the most World Heritage Sites?",
+  options: ["Asia", "Africa", "Europe", "North America"],
+  correct: "Europe",
+  },
+  {
+  question: "Which planet is known as the 'Red Planet'?",
+  options: ["Mars", "Venus", "Jupiter", "Mercury"],
+  correct: "Mars",
+  },
+  {
+  question: "What is the Vredefort Dome, a World Heritage site in South Africa??",
+  options: [
+    "The world's largest asteroid impact site",
+      "An 11th-century stadium",
+      "A historic gold mine",
+      "A volcanic crater",
+  ],
+  correct: "The world's largest asteroid impact site",
+  },
+  {
+  question: "What is the largest mammal on Earth?",
+  options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+  correct: "Blue Whale",
+  },
+  {
+  question: "Which famous artist painted the Mona Lisa?",
+  options: [
+      "Vincent van Gogh",
+      "Pablo Picasso",
+      "Leonardo da Vinci",
+      "Michelangelo",
+  ],
+  correct: "Leonardo da Vinci",
+  },
+  {
+  question: "Which playwright wrote the tragedy 'Romeo and Juliet'?",
+  options: [
+      "William Shakespeare",
+      "George Bernard Shaw",
+      "Oscar Wilde",
+      "Charles Dickens",
+  ],
+  correct: "William Shakespeare",
+  },
+  {
+  question: "What does a World Heritage site added in 2006 recognizes in Mexico add?",
+  options: [
+      "Artist Diego Rivera's murals",
+      "The Zona Rosa neighborhood of Mexico City",
+      "Its tequila-producing area",
+      "A bullring in Acapulco",
+  ],
+  correct: "Its tequila-producing area",
+  },
+  {
+  question:
+  "Which ancient wonder of the world was a massive statue of the Greek god Zeus?",
+  options: [
+  "Great Pyramid of Giza",
+      "Hanging Gardens of Babylon",
+      "Statue of Zeus at Olympia",
+      "Colossus of Rhodes",
+  ],
+  correct: "Statue of Zeus at Olympia",
+  },
+  {
+  question: "Which religion has the cow a holy animal?",
+  options: [
+      "Buddhism", "Judaism",
+      "Christianity", "Hinduism",],
+  correct: "Hinduism",
+  },
+
+  {
+  question: "Which food is from Mexico?",
+  options: [
+      "Injera",
+      "Banga",
+      "Molletes",
+      "Pastilla",
+  ],
+  correct: "Molletes",
+  },
+
+  ];
+
+//   *------------------------ Cached Element References ------------------------*/
+
+
+const quizContainer = document.querySelector(".quiz-container");
+const question = document.querySelector(".quiz-container .question");
+const options = document.querySelector(".quiz-container .options");
+const nextBtn = document.querySelector(".quiz-container .next-btn");
+const quizResult = document.querySelector(".quiz-result");
+const startBtnContainer = document.querySelector(".start-btn-container");
+const startBtn = document.querySelector(".start-btn-container .start-btn");
+
+let questionNumber = 0;
+let score = 0;
+const MAX_QUESTIONS = 10;
+let timerInteval;
 
   const shuffleArray = array => {
     return array.slice().sort(() => Math.random() - 0.5);
@@ -113,7 +118,7 @@ let quizData = [
   
   resetLocalStorage();
   
-
+/*-------------------------------- Functions --------------------------------*/
   const checkAnswer = (e) => {
     let userAnswer = e.target.textContent;
     if (userAnswer === quizData[questionNumber].correct) {
@@ -175,6 +180,7 @@ const createQuestion = () => {
         options.appendChild(option);
     });
   };
+/*---------------------------- Variables (state) ----------------------------*/
 
   const retakeQuiz =() => {
     questionNumber = 0;
@@ -223,7 +229,7 @@ const displayQuizResult = () => {
     retakeBtn.addEventListener("click", (retakeQuiz) => {
       window.location.reload();
     });
-
+  
     retakeBtn.classList.add("retake-btn");
     retakeBtn.innerText = "Retake Quiz";
     retakeBtn.addEventListener("click", retakeQuiz);
@@ -240,6 +246,7 @@ const displayQuizResult = () => {
     questionNumber++;
     createQuestion();
   };
+/*----------------------------- Event Listeners -----------------------------*/
 
   nextBtn.addEventListener("click", displayNextQuestion);
 
@@ -249,5 +256,11 @@ const displayQuizResult = () => {
     createQuestion();
     startTimer();
   });
+}
+
+
+
+
+
 
 
