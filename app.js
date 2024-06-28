@@ -131,7 +131,7 @@ let quizData = [
     });
   };
 
-  const createQuestion = () => {
+  const startTimer = () => {
     clearInterval(timerInteval);
 
     let secondsLeft = 29;
@@ -155,7 +155,9 @@ let quizData = [
           displayNextQuestion();
         }
       }, 1000);
-    
+  };
+
+const createQuestion = () => {
 
     options.innerText = "";
     question.innerText = quizData[questionNumber].question;
@@ -217,14 +219,15 @@ const displayQuizResult = () => {
       quizResult.appendChild(resultItem);
     }
 
-const retakeBtn = document.createElement("button");
+  const retakeBtn= document.querySelector("button");
+    retakeBtn.addEventListener("click", (retakeQuiz) => {
+      window.location.reload();
+    });
+
     retakeBtn.classList.add("retake-btn");
-    retakeBtn.innerHTML = "Retake Quiz";
+    retakeBtn.innerText = "Retake Quiz";
     retakeBtn.addEventListener("click", retakeQuiz);
     quizResult.appendChild(retakeBtn);
-};
-
-  // createQuestion();
 
 
   const displayNextQuestion = () => {
@@ -238,12 +241,13 @@ const retakeBtn = document.createElement("button");
     createQuestion();
   };
 
-  nextBtn.addEventListener("click", displayNextQuestion)
-
   nextBtn.addEventListener("click", displayNextQuestion);
 
   startBtn.addEventListener("click", () => {
     startBtnContainer.style.display = "none";
     quizContainer.style.display = "block";
     createQuestion();
+    startTimer();
   });
+
+
