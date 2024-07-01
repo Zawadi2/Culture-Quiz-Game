@@ -5,11 +5,13 @@ let quizData = [
   question: "What continent has the most World Heritage Sites?",
   options: ["Asia", "Africa", "Europe", "North America"],
   correct: "Europe",
+  type: "history" ,
   },
   {
   question: "Which planet is known as the 'Red Planet'?",
   options: ["Mars", "Venus", "Jupiter", "Mercury"],
   correct: "Mars",
+  type: "any",
   },
   {
   question: "What is the Vredefort Dome, a World Heritage site in South Africa??",
@@ -20,11 +22,13 @@ let quizData = [
       "A volcanic crater",
   ],
   correct: "The world's largest asteroid impact site",
+  type: "history",
   },
   {
   question: "What is the largest mammal on Earth?",
   options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
   correct: "Blue Whale",
+  type: "any",
   },
   {
   question: "Which famous artist painted the Mona Lisa?",
@@ -35,6 +39,7 @@ let quizData = [
       "Michelangelo",
   ],
   correct: "Leonardo da Vinci",
+  type:"history"
   },
   {
   question: "Which playwright wrote the tragedy 'Romeo and Juliet'?",
@@ -45,6 +50,7 @@ let quizData = [
       "Charles Dickens",
   ],
   correct: "William Shakespeare",
+  type: "any",
   },
   {
   question: "What does a World Heritage site added in 2006 recognizes in Mexico add?",
@@ -55,6 +61,7 @@ let quizData = [
       "A bullring in Acapulco",
   ],
   correct: "Its tequila-producing area",
+  type: "history"
   },
   {
   question:
@@ -66,6 +73,7 @@ let quizData = [
       "Colossus of Rhodes",
   ],
   correct: "Statue of Zeus at Olympia",
+  type: "history"
   },
   {
   question: "Which religion has the cow a holy animal?",
@@ -73,6 +81,7 @@ let quizData = [
       "Buddhism", "Judaism",
       "Christianity", "Hinduism",],
   correct: "Hinduism",
+  type: "any",
   },
 
   {
@@ -84,6 +93,7 @@ let quizData = [
       "Pastilla",
   ],
   correct: "Molletes",
+  type: "any",
   },
 
   ];
@@ -98,30 +108,32 @@ const nextBtn = document.querySelector(".quiz-container .next-btn");
 const quizResult = document.querySelector(".quiz-result");
 const startBtnContainer = document.querySelector(".start-btn-container");
 const startBtn = document.querySelector(".start-btn-container .start-btn");
+const category  = document.getElementById("category")
 
 let questionNumber = 0;
 let score = 0;
-const MAX_QUESTIONS = 10;
 let timerInteval;
+let selectCategory;
+let categoryArray;
 
   const shuffleArray = array => {
     return array.slice().sort(() => Math.random() - 0.5);
   };
 
-  quizData = shuffleArray(quizData);
+  
 
   const resetLocalStorage = () => {
-    for (i = 0; i < MAX_QUESTIONS; i++) {
+    for (i = 0; i < categoryArray.length; i++) {
       localStorage.removeItem(`userAnswer_${i}`);
     }
   };
   
-  resetLocalStorage();
+  // resetLocalStorage();
   
 /*-------------------------------- Functions --------------------------------*/
   const checkAnswer = (e) => {
     let userAnswer = e.target.textContent;
-    if (userAnswer === quizData[questionNumber].correct) {
+    if (userAnswer === categoryArray[questionNumber].correct) {
         score++;
         e.target.classList.add("correct");
     }else {
@@ -163,11 +175,14 @@ let timerInteval;
   };
 
 const createQuestion = () => {
-
+  
+  categoryArray = quizData.filter((question) => question.type === selectCategory);
+  categoryArray = shuffleArray(categoryArray);
+  
     options.innerText = "";
-    question.innerText = quizData[questionNumber].question;
+    question.innerText = categoryArray[questionNumber].question;
 
-    const shuffledOptioons = shuffleArray(quizData[questionNumber].options);
+    const shuffledOptioons = shuffleArray(categoryArray[questionNumber].options);
 
     shuffledOptioons.forEach(o => {
         const option = document.createElement("button");
@@ -185,7 +200,7 @@ const createQuestion = () => {
   const retakeQuiz =() => {
     questionNumber = 0;
     score = 0;
-    quizData = shuffleArray(quizData);
+    // quizData = shuffleArray(quizData);
     resetLocalStorage();
 
 
@@ -200,16 +215,16 @@ const displayQuizResult = () => {
     quizResult.innerText = "";
 
  const resultHeading = document.createElement("h2");
-    resultHeading.innerText = `You have scored ${score} out of ${MAX_QUESTIONS}.`;
+    resultHeading.innerText = `You have scored ${score} out of ${categoryArray.length}.`;
     quizResult.appendChild(resultHeading);   
 
     
-    for (let i = 0; i < MAX_QUESTIONS; i++) {
+    for (let i = 0; i < categoryArray.length; i++) {
         const resultItem = document.createElement("div");
         resultItem.classList.add("question-container");
 
         const userAnswer = localStorage.getItem(`userAnswer_${i}`);
-        const correctAnswer = quizData[i].correct; 
+        const correctAnswer = categoryArray[i].correct; 
         
         let answeredCorrectly = userAnswer === correctAnswer;
 
@@ -217,7 +232,7 @@ const displayQuizResult = () => {
         resultItem.classList.add("incorrect");
     }
     resultItem.innerText = `<div class="question">Question ${i + 1}: ${
-        quizData[i].question
+        categoryArray[i].question
     }</div>
       <div class="user-answer">Your answer: ${userAnswer || "Not Answered"}</div>
       <div class="correct-answer">Correct answer: ${correctAnswer}</div>`;
@@ -237,7 +252,7 @@ const displayQuizResult = () => {
   };
 
   const displayNextQuestion = () => {
-    if (questionNumber >= MAX_QUESTIONS - 1) {
+    if (questionNumber >= categoryArray.length - 1) {
         displayQuizResult();
         return;
     }
@@ -253,6 +268,7 @@ const displayQuizResult = () => {
   
 
   startBtn.addEventListener("click", () => {
+    selectCategory = category.value; 
     startBtnContainer.style.display = "none";
     quizContainer.style.display = "block";
     createQuestion();
@@ -260,12 +276,7 @@ const displayQuizResult = () => {
   });
   
 
-  const playAudio = new Audio(".../audio/beats.mp3")
-
-  playAudio.addEventListener("click",() => {
-    audio.volume = 0.5
-    audio.play()
-  })
+  
 
 
 
