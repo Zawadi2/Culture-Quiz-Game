@@ -151,11 +151,11 @@ let categoryArray;
   const startTimer = () => {
     clearInterval(timerInteval);
 
-    let secondsLeft = 29;
+    let secondsLeft = 59;
     const timerDisplay = document.querySelector(".quiz-container .timer");
     timerDisplay.classList.remove("danger");
 
-    timerDisplay.textContent = 'Time left: 30 seconds';
+    timerDisplay.textContent = 'Time left: 60 seconds';
 
     timerInterval = setInterval(() => {
         timerDisplay.textContent = `Time Left: ${secondsLeft
