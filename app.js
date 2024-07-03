@@ -109,6 +109,7 @@ const quizResult = document.querySelector(".quiz-result");
 const startBtnContainer = document.querySelector(".start-btn-container");
 const startBtn = document.querySelector(".start-btn-container .start-btn");
 const category  = document.getElementById("category")
+const play = document.getElementById("play");
 
 let questionNumber = 0;
 let score = 0;
@@ -195,6 +196,13 @@ const createQuestion = () => {
         options.appendChild(option);
     });
   };
+
+
+playMusic = () => {
+  audio = new Audio("beats.mp3");
+  audio.play()
+
+};
 /*---------------------------- Variables (state) ----------------------------*/
 
   const retakeQuiz =() => {
@@ -261,10 +269,13 @@ const displayQuizResult = () => {
     questionNumber++;
     createQuestion();
   };
+
+ 
 /*----------------------------- Event Listeners -----------------------------*/
 
 
   nextBtn.addEventListener("click", displayNextQuestion);
+  play.addEventListener("click",playMusic)
   
 
   startBtn.addEventListener("click", () => {
