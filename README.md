@@ -4,7 +4,7 @@
 **INTRO**
 
 A Culture Quiz game is an interactive game or application that tests a player's knowledge or understanding of different culctures. It presents a series of different culture questions, and the player must respond correctly to score points or progress through the game.I personally chose to do the Culture quiz Game because I am a ThirdCulture kid. I believe that Culture helps us to define who we are and where we come from. It brings people together, creating a sense of belonging and connection. Culture allows us to express ourselves through history, music, language,food and more. This Culture quiz will test the palyer knowledge and to see what you really know about various cultures.
-The main purpose of this game is to engage and challenge players while testing how culture they are in a fun and interactive way! 
+The main purpose of this game is to engage and challenge players while testing how culture you are in a fun and interactive way! 
 
 Some of the common features of a culture game include:
 
