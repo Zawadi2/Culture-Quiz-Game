@@ -3,20 +3,19 @@
 
 **INTRO**
 
-A quiz game is an interactive game or application that tests a player's knowledge or understanding of a particular subject or topic. It typically presents a series of questions or challenges, and the player must respond correctly to score points or progress through the game.Some of the common features of a quiz game include:
+A Culture Quiz game is an interactive game or application that tests a player's knowledge or understanding of different culctures. It presents a series of different culture questions, and the player must respond correctly to score points or progress through the game.I personally chose to do the Culture quiz Game because I am a ThirdCulture kid. I believe that Culture helps us to define who we are and where we come from. It brings people together, creating a sense of belonging and connection. Culture allows us to express ourselves through history, music, language,food and more. This Culture quiz will test the palyer knowledge by challenging yourself to see how much you know about various cultures.
+The main purpose of this game is to engage and challenge players while testing how culture they are in a fun and interactive way! 
 
-<li>Questions or challenges with multiple-choice answers</li>
+Some of the common features of a culture game include:
+
+<li>Questions with multiple-choice answers</li>
 <li>Scoring system to track player progress</li>
-<li>Timer or time limit for each question</li>
+<li>Timer or time limit for all question</li>
 <li>Option to view correct answers or explanations</li>
-<li>Themes or categories for questions (e.g., history, science, sports)</li>
-<li>Quiz games can be played solo or with others, and they're often used for entertainment, education, or training purposes.</li>
+<li>Themes or categories for questions (Any Categories and history)</li>
+<li> Culture games can be played solo or with others, and it is used for entertainment and education.</li>   
 
 
-Overall, quiz games aim to engage and challenge players while testing their knowledge or skills in a fun and interactive way!
-
-The reasons why I choose to do a culture quiz Game are: to learn about different cultures by exploring customs, traditions, and history from around the world. To Test my knowledge by challenging yourself and others to see how much you know about various cultures.
-lastly , to Promote cultural awareness by understanding and appreciation of diverse cultures.
 
 **PLAY THE GAME**
 
