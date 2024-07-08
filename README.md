@@ -13,7 +13,7 @@ Some of the common features of a culture game include:
 <li>Timer or time limit for all question</li>
 <li>Option to view correct answers or explanations</li>
 <li>Themes or categories for questions (Any Categories and history)</li>
-<li> Culture games can be played solo or with others, and it is used for entertainment and education.</li>   
+<li> Culture Quiz game can be played solo or with others, and it is used for entertainment and education.</li>   
 
 
 
